@@ -12,7 +12,7 @@ function Home() {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    fetch("/api/games")
+    fetch("/gamesapi/games")
       .then((res) => res.json())
       .then((data) => setGames(data.slice(0, 10))) // limit to 10 trending
       .catch((err) => console.error("Error fetching games:", err));

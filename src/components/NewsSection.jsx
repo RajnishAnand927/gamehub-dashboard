@@ -13,7 +13,7 @@ function NewsSection() {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        // Store only the first 6 articles for display
+        // change no of articles that are shown
         setNews(data.articles.slice(0, 8));
         setLoading(false);
       })

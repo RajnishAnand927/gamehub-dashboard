@@ -8,7 +8,7 @@ function GameDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/game?id=${id}`)
+    fetch(`/gamesapi/game?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setGame(data);

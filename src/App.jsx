@@ -9,6 +9,9 @@ import PCGames from "./components/PCGames";
 import PS5Games from "./components/PS5Games";
 import XboxGames from "./components/XboxGames";
 import NintendoGames from "./components/NintendoGames";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Profile from "./components/Profile";
 
 import "./App.css";
 
@@ -30,19 +33,16 @@ function App() {
 
           <main className="content">
             <Routes>
-              {/* 🏠 Home */}
               <Route path="/" element={<Home />} />
-
               <Route path="/game/:id" element={<GameDetail />} />
-
-              {/* 📰 News Page */}
               <Route path="/news" element={<NewsSection />} />
-
-              {/* 🧠 Platform-specific pages */}
               <Route path="/games/pc" element={<PCGames />} />
               <Route path="/games/ps5" element={<PS5Games />} />
               <Route path="/games/xbox" element={<XboxGames />} />
               <Route path="/games/nintendo" element={<NintendoGames />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
         </div>

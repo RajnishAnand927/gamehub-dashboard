@@ -1,0 +1,74 @@
+.profile-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #1e1e2f;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+
+.tabs button {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabs button:hover {
+  color: #fff;
+}
+
+.tabs .active {
+  color: #61dafb;
+  border-bottom: 2px solid #61dafb;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.profile-form input {
+  padding: 0.6rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #2b2b3c;
+  color: #fff;
+}
+
+.profile-form button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: #61dafb;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.profile-form button:hover {
+  background: #4dc3e7;
+}
+
+.placeholder {
+  text-align: center;
+  color: #ccc;
+  padding: 1rem;
+}
+
+.message {
+  margin-top: 1rem;
+  color: #4dc3e7;
+}

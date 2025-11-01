@@ -7,7 +7,7 @@ function PCGames() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/games?platform=ps5`)
+    fetch(`/gamesapi/games?platform=ps5`)
       .then((res) => res.json())
       .then((data) => {
         setGames(data);
