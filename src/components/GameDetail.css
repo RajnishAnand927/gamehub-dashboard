@@ -1,0 +1,53 @@
+.game-detail {
+  padding: 20px;
+  color: #fff;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+.game-header {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.game-thumbnail {
+  width: 320px;
+  border-radius: 12px;
+}
+
+.game-info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.play-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #ff9900;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.screenshots {
+  margin-top: 30px;
+}
+
+.screenshot-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.screenshot-grid img {
+  width: 300px;
+  border-radius: 8px;
+}

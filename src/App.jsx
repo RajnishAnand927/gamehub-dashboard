@@ -1,0 +1,54 @@
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import NewsSection from "./components/NewsSection";
+import GameDetail from "./components/GameDetail";
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+import PCGames from "./components/PCGames";
+import PS5Games from "./components/PS5Games";
+import XboxGames from "./components/XboxGames";
+import NintendoGames from "./components/NintendoGames";
+
+import "./App.css";
+
+function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  return (
+    <Router>
+      <div className="app-container">
+        {/* Optional navbar */}
+        <Navbar />
+
+        <div
+          className={`layout ${
+            sidebarOpen ? "sidebar-open" : "sidebar-closed"
+          }`}
+        >
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+
+          <main className="content">
+            <Routes>
+              {/* 🏠 Home */}
+              <Route path="/" element={<Home />} />
+
+              <Route path="/game/:id" element={<GameDetail />} />
+
+              {/* 📰 News Page */}
+              <Route path="/news" element={<NewsSection />} />
+
+              {/* 🧠 Platform-specific pages */}
+              <Route path="/games/pc" element={<PCGames />} />
+              <Route path="/games/ps5" element={<PS5Games />} />
+              <Route path="/games/xbox" element={<XboxGames />} />
+              <Route path="/games/nintendo" element={<NintendoGames />} />
+            </Routes>
+          </main>
+        </div>
+      </div>
+    </Router>
+  );
+}
+
+export default App;

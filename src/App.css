@@ -1,0 +1,88 @@
+/* Base layout */
+.app-container {
+  position: relative;
+  background: black;
+  overflow: hidden;
+}
+
+/* Navbar fixed to top */
+nav, .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #141414;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000; /* Always above sidebar/content */
+  border-bottom: 1px solid #222;
+}
+
+/* Sidebar + main layout */
+.layout {
+  display: flex;
+  flex-grow: 1;
+  margin-top: 60px; /* push below navbar */
+  height: calc(100vh - 70px);
+  transition: margin-left 0.3s ease;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;           /* stays in place while scrolling */
+  top: 65px;                 /* same height as navbar */
+  left: 0;
+  bottom: 0;
+  background-color: #1a1a1a;
+  color: white;
+  transition: width 0.3s ease;
+  overflow-y: auto;
+  height: calc(100vh - 90px); /* account for navbar */
+  scrollbar-width: thin;
+  z-index: 900;              /* below navbar but above content */
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+
+}
+
+.sidebar.expanded {
+  width: 220px;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* Main content */
+.content {
+  flex-grow: 1;
+  margin-left: 220px; /* default when sidebar expanded */
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* When sidebar is open */
+.sidebar.collapsed ~ .content {
+  margin-left: 70px;
+}
+
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .sidebar.expanded {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    height: calc(100vh - 60px);
+    width: 200px;
+    z-index: 999;
+  }
+
+  .sidebar.collapsed {
+    width: 0;
+  }
+}
