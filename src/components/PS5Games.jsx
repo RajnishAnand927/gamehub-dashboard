@@ -1,8 +1,9 @@
-// components/PCGames.jsx
+
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./GameCategory.css";
 
-function PCGames() {
+function PS5Games() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,24 +14,24 @@ function PCGames() {
         setGames(data);
         setLoading(false);
       })
-      .catch((err) => console.error("Error fetching PC games:", err));
+      .catch((err) => console.error("Error fetching PS5 games:", err));
   }, []);
 
-  if (loading) return <p className="loading-text">Loading PC games...</p>;
+  if (loading) return <p className="loading-text">Loading PS5 games...</p>;
 
   return (
     <div className="game-category-page">
       <h1 className="category-title">🎮 PS5 Games</h1>
       <div className="games-grid">
         {games.slice(0, 20).map((game) => (
-          <div key={game.id} className="game-card">
+          <Link key={game.id} to={`/game/${game.id}`} className="game-card">
             <img src={game.thumbnail} alt={game.title} />
             <p>{game.title}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
   );
 }
 
-export default PCGames;
+export default PS5Games;

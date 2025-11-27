@@ -12,6 +12,7 @@ import NintendoGames from "./components/NintendoGames";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
+import SearchResults from "./components/SearchResults";
 
 import "./App.css";
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        {/* Optional navbar */}
+        
         <Navbar />
 
         <div
@@ -35,6 +36,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/game/:id" element={<GameDetail />} />
+              <Route path="/search" element={<SearchResults />} />
               <Route path="/news" element={<NewsSection />} />
               <Route path="/games/pc" element={<PCGames />} />
               <Route path="/games/ps5" element={<PS5Games />} />

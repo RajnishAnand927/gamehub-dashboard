@@ -1,4 +1,4 @@
-// components/NewsSection.jsx
+
 import React, { useEffect, useState } from "react";
 import "./NewsSection.css"
 import NewsCard from "./NewsCard";

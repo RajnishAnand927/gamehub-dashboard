@@ -1,9 +1,9 @@
 .home-container {
-  position: relative;       /* needed for z-index layering */
+  position: relative;      
   min-height: 50px;
   width: 98%;
-  z-index: 0;               /* ensures bg-video stays behind */
-  background-color: transparent; /* remove solid black */
+  z-index: 0;               
+  background-color: transparent; 
 }
 
 .featured-section {
@@ -54,7 +54,7 @@
   margin-bottom: 10px;
 }
 
-/* 🎮 Scroll Cards */
+
 .card-scroll {
   position: relative;
   z-index: 2;
@@ -87,7 +87,7 @@
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
 }
 .game-card-scrollingcard:visited {
-  color: inherit; /* prevent blue/purple visited color */
+  color: inherit; 
 }
 
 .game-card-scrollingcard img {
@@ -101,7 +101,7 @@
   font-weight: 600;
 }
 
-/* ⬅️➡️ Scroll Buttons */
+
 .scroll-btn {
   position: absolute;
   top: 50%;
@@ -127,4 +127,20 @@
 
 .scroll-btn.left { left: 10px; }
 .scroll-btn.right { right: 10px; }
+
+.shuffle-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.shuffle-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+}
 

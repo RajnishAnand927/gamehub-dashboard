@@ -10,11 +10,24 @@ function Home() {
   const scrollRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
   const [games, setGames] = useState([]);
+  const [recommended, setRecommended] = useState(null);
+  
+  
 
   useEffect(() => {
+    const pickAndSet = (list) => {
+      if (!list || list.length === 0) return;
+      const idx = Math.floor(Math.random() * list.length);
+      const g = list[idx];
+      setRecommended(g);
+    };
+
     fetch("/gamesapi/games")
       .then((res) => res.json())
-      .then((data) => setGames(data.slice(0, 10))) // limit to 10 trending
+      .then((data) => {
+        setGames(data.slice(0, 10));
+        pickAndSet(data);
+      })
       .catch((err) => console.error("Error fetching games:", err));
   }, []);
 
@@ -48,7 +61,7 @@ function Home() {
   return (
     <div className="base">
       <div className="home-container">
-        <section className="featured-section">
+      <section className="featured-section">
           <video className="bg-video" autoPlay loop muted playsInline>
             <source src={ghost} type="video/mp4" />
           </video>
@@ -82,9 +95,43 @@ function Home() {
         </section>
       </div>
 
+      {recommended && (
+        <section className="news-section" style={{ marginTop: "24px" }}>
+          <h2 className="section-title">Recommended Play</h2>
+          <div className="news-grid">
+            <div className="news-card" style={{ gridColumn: "1 / -1", maxWidth: "33%", margin: "0 auto" }}>
+              <img src={recommended.thumbnail} alt={recommended.title} className="news-image" />
+              <div className="news-content">
+                <h3>{recommended.title}</h3>
+                <p>{recommended.short_description}</p>
+                <p><strong>Genre:</strong> {recommended.genre} &nbsp; <strong>Platform:</strong> {recommended.platform}</p>
+                <div style={{ display: "flex", gap: 10, marginTop: 10, flexWrap: "wrap" }}>
+                  <Link to={`/game/${recommended.id}`} className="play-btn">View Details</Link>
+                  <button
+                    className="shuffle-btn"
+                    onClick={() => {
+                      if (games && games.length > 0) {
+                        const idx = Math.floor(Math.random() * games.length);
+                        setRecommended(games[idx]);
+                      }
+                    }}
+                  >
+                    Shuffle
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="NewsSection">
         <NewsSection />
       </section>
+
+     
+
+      
     </div>
   );
 }

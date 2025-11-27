@@ -15,7 +15,7 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Logo + title */
+
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@
   font-weight: 600;
 }
 
-/* Search bar */
+
 .Searchbar form {
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@
   border-radius: 20px;
   border: none;
   outline: none;
-  padding-left: 40px; /* space for icon */
+  padding-left: 40px; 
   font-size: 0.95rem;
   background-color: #2d2d44;
   color: white;
@@ -75,7 +75,6 @@
   box-shadow: 0 0 6px #ff4d4d;
 }
 
-/* Login / Signup buttons */
 .LogSignBtn {
   display: flex;
   gap: 10px;
@@ -97,7 +96,6 @@
   background-color: #ff6b6b;
 }
 
-/* Responsive behavior */
 @media (max-width: 768px) {
   .Searchbar input {
     width: 180px;
@@ -129,7 +127,6 @@
   padding: 10px 20px;
 }
 
-/* Add a small shadow for separation */
 .navbar {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }

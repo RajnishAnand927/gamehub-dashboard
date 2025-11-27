@@ -33,6 +33,7 @@ export default function Signup() {
         navigate("/profile");
       }
     } catch (err) {
+      console.error(err);
       setMessage("Error connecting to server");
     }
   };

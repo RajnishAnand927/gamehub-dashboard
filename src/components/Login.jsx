@@ -30,6 +30,7 @@ export default function Login() {
         navigate("/profile");
       }
     } catch (err) {
+      console.error(err);
       setMessage("Error connecting to server");
     }
   };

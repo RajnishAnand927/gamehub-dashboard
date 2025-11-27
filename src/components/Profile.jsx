@@ -34,6 +34,7 @@ export default function Profile() {
       const data = await res.json();
       setMessage(data.message);
     } catch (err) {
+      console.error(err);
       setMessage("Error updating user");
     }
   };
@@ -44,7 +45,7 @@ export default function Profile() {
     <div className="profile-container">
       <h2>Welcome, {user.username || "User"} 👋</h2>
 
-      {/* 🔹 Tabs */}
+      
       <div className="tabs">
         <button
           className={activeTab === "about" ? "active" : ""}
@@ -72,7 +73,7 @@ export default function Profile() {
         </button>
       </div>
 
-      {/* 🔹 Tab content */}
+      
       <div className="tab-content">
         {activeTab === "about" && (
           <form className="profile-form">

@@ -6,9 +6,10 @@ import searchlogo from "./../assets/searchlogo.png";
 
 function Navbar() {
   const [user, setUser] = useState(null);
+  const [term, setTerm] = useState("");
   const navigate = useNavigate();
 
-  // Read user from localStorage (fast UI)
+  
   const readUserFromStorage = () => {
     const username = localStorage.getItem("username");
     const email = localStorage.getItem("userEmail");
@@ -17,13 +18,9 @@ function Navbar() {
   };
 
   useEffect(() => {
-    // initialize from localStorage
     setUser(readUserFromStorage());
 
-    // handle cross-tab logout/login (storage event)
     const onStorage = () => setUser(readUserFromStorage());
-
-    // handle in-tab custom event (we will dispatch this after login/signup)
     const onAuthChange = () => setUser(readUserFromStorage());
 
     window.addEventListener("storage", onStorage);
@@ -39,10 +36,9 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("userEmail");
     localStorage.removeItem("username");
-    // notify other listeners
     window.dispatchEvent(new Event("authChange"));
     setUser(null);
-    navigate("/"); // Redirect to home
+    navigate("/"); 
   };
 
   return (
@@ -53,19 +49,21 @@ function Navbar() {
       </div>
 
       <div className="Searchbar">
-        <form>
+        <form onSubmit={(e) => { e.preventDefault(); const q = term.trim(); if (q) navigate(`/search?q=${encodeURIComponent(q)}`); }}>
           <div className="search-container">
             <img src={searchlogo} alt="Search" className="search-logo" />
             <input
               type="text"
               name="search"
               placeholder="What are you looking for..."
+              value={term}
+              onChange={(e) => setTerm(e.target.value)}
             />
           </div>
         </form>
       </div>
 
-      {/* Right-side buttons */}
+      
       <div className="LogSignBtn">
         {!user ? (
           <>

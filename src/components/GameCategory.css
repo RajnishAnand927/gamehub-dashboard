@@ -39,3 +39,24 @@
   margin: 10px 0;
   font-size: 14px;
 }
+
+.genre-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 0 20px;
+}
+
+.genre-tab {
+  background: #2a2a2a;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.genre-tab.active {
+  background: #4a90e2;
+}

@@ -1,8 +1,9 @@
-// components/PCGames.jsx
+
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./GameCategory.css";
 
-function PCGames() {
+function XboxGames() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -16,21 +17,21 @@ function PCGames() {
       .catch((err) => console.error("Error fetching Xbox games:", err));
   }, []);
 
-  if (loading) return <p className="loading-text">Loading PC games...</p>;
+  if (loading) return <p className="loading-text">Loading Xbox games...</p>;
 
   return (
     <div className="game-category-page">
       <h1 className="category-title">🎮 Xbox Games</h1>
       <div className="games-grid">
         {games.slice(0, 20).map((game) => (
-          <div key={game.id} className="game-card">
+          <Link key={game.id} to={`/game/${game.id}`} className="game-card">
             <img src={game.thumbnail} alt={game.title} />
             <p>{game.title}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
   );
 }
 
-export default PCGames;
+export default XboxGames;
